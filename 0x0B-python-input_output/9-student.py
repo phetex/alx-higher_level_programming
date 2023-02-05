@@ -1,16 +1,20 @@
 #!/usr/bin/python3
-"""add_item
-"""
-import sys
-load_from_json_file = __import__('8-load_from_json_file').load_from_json_file
-save_to_json_file = __import__('7-save_to_json_file').save_to_json_file
+"""returns dictionary representation of a class"""
 
-try:
-    loadFile = load_from_json_file("add_item.json")
-except FileNotFoundError:
-    loadFile = []
 
-argc = len(sys.argv)
-for idx in range(1, argc):
-    loadFile.append(sys.argv[idx])
-save_to_json_file(loadFile, "add_item.json")
+class Student:
+    """define Student class"""
+    def __init__(self, first_name, last_name, age):
+        """initialize public instance attributes
+        Args:
+            first_name (str): students first name
+            last_name (str): students last name
+            age (int): students age
+        """
+        self.first_name = first_name
+        self.last_name = last_name
+        self.age = age
+
+    def to_json(self):
+        """return __dict__ attribute"""
+        return vars(self)

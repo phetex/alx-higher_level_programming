@@ -1,12 +1,13 @@
 #!/usr/bin/python3
-"""write_file
-"""
+"""returns JSON representation of an object (string)"""
+import json
 
 
-def write_file(filename="", text=""):
-    """Takes str filename to read, and str text to write to
+def to_json_string(my_obj):
     """
-
-    with open(filename, mode="w", encoding="utf-8") as writeFile:
-        writeFile.write(text)
-        return len(text)
+    Uses the dump() method of the json module to
+    return the JSON representation of my_obj
+    Args:
+        my_obj (str): string to get JSON representation of
+    """
+    return json.dumps(my_obj)

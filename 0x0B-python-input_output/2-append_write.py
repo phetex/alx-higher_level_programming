@@ -1,21 +1,16 @@
 #!/usr/bin/python3
-"""read_lines
-"""
-import os
+"""appends a string at the end of a text file (UTF8) and returns
+    the number of chars added"""
 
 
-def read_lines(filename="", nb_lines=0):
-    """Takes in str filename to read, and n lines w/ int nb_lines
+def append_write(filename="", text=""):
     """
-
-
-    with open(filename, encoding="utf-8") as readFile:
-        lineNum = 0
-        while True:
-            line = readFile.readline()
-            lineNum += 1
-            print(line, end='')
-            if lineNum >= nb_lines and nb_lines > 0:
-                break 
-            if not line:
-                break
+    Description: appends string at of text file
+    Args:
+        filename: file to append string to
+        text (str): string to be appended
+    Return:
+        number of characters added
+    """
+    with open(filename, 'a', encoding='utf8') as file:
+        return file.write(text)

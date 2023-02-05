@@ -1,17 +1,15 @@
 #!/usr/bin/python3
-"""number_of_lines
-"""
+"""writes a string to a text file(UTF8) and
+    returns the number of chars written"""
 
 
-def number_of_lines(filename=""):
-    """Takes in str filename to read the number of lines
+def write_file(filename="", text=""):
+    """uses open() and write() to write string to a text file.
+    Return:
+        no of characters read
+    Args:
+        filename: text file to write into
+        text (str): string to write to text file
     """
-
-    with open(filename, encoding="utf-8") as readFile:
-        lines = 0
-        while True:
-            line = readFile.readline()
-            if not line:
-                break
-            lines += 1
-        return lines
+    with open(filename, 'w', encoding='utf8') as file:
+        return file.write(text)

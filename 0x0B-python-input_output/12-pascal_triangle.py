@@ -1,24 +1,31 @@
-ass Student:
-    """Contains student data
+#!/usr/bin/python3
+"""Defines a function that generates pascal's triangle"""
+
+
+def pascal_triangle(n):
+    """returns a list of lists of integers representing
+    the Pascal's triangle of n
+    Args:
+        n (int): size of triangle
     """
+    superList, current, next = [], [], []
 
-    def __init__(self, first_name, last_name, age):
-        self.first_name = first_name
-        self.last_name = last_name
-        self.age = age
+    if n <= 0:
+        return []
 
-    def to_json(self, attrs=None):
-        """Retrieves dictionary of Student with conditions to filter
-        """
+    current.append(1)
+    superList.append(current)
+    for i in range(n - 1):
+        if len(superList) == 1:
+            current = [1, 1]
+            superList.append(current)
+            continue
 
-        if attrs == None or type(attrs) != list:
-            return self.__dict__
-        else:
-            temp = {}
-            for elem in attrs:
-                if type(elem) != str:
-                    return self.__dict__
-                if elem in self.__dict__.keys():
-                    temp[elem] = self.__dict__[elem]
-            return temp
-
+        next.append(1)
+        for j in range(0, len(current) - 1):
+            next.append(current[j] + current[j+1])
+        next.append(1)
+        superList.append(next)
+        current = next
+        next = []
+    return superList

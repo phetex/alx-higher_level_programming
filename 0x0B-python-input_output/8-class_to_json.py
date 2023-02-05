@@ -1,12 +1,11 @@
 #!/usr/bin/python3
-"""load_from_json_file
-"""
-import json
+"""returns the __dict__ attribute of an object"""
 
 
-def load_from_json_file(filename):
-    """Returns created object from a JSON file
+def class_to_json(obj):
+    """uses the built-in vars() method to return
+    the __dict__ attribute of obj
+    Args:
+        obj (Class): object to return changeable attributes
     """
-
-    with open(filename, mode="r", encoding="UTF-8") as readFile:
-       return json.load(readFile) 
+    return vars(obj)
