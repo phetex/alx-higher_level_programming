@@ -1,2 +1,11 @@
 #!/usr/bin/node
-console.log(process...[2] ? process...[2] : 'No argument');
+
+// Check if any argument is passed
+if (process.argv[2] !== undefined) {
+  // Print the first argument
+  console.log(process.argv[2]);
+} else {
+  // No argument is passed
+  console.log("No argument");
+}
+
